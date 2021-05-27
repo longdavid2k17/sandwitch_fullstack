@@ -1,6 +1,6 @@
 # sandwitch_fullstack
 
-Fullstack application for ordering food from restaurant
+Sandwitch is fullstack application, based on Spring Boot and Angular, for ordering food from restaurant. There will be wide scope of features that user can do in our service. It is based on nowadays very popular idea of food ordering with delivery in Covid time.
 
 # Features
 - ordering products from product list
