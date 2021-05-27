@@ -6,6 +6,7 @@ Fullstack application for ordering food from restaurant
 - ordering products from product list
 - creating user account
 - visually atractive Angular client 
+- admin panel (adding new ingredients, products, managing order status)
 
 # Stack
 Angular
