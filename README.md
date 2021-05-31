@@ -28,4 +28,7 @@ Schemat fizykalny
 
 ![DB_SCHEMA2](https://raw.githubusercontent.com/longdavid2k17/sandwitch_fullstack/master/readme_images/shema-rel.PNG)
 
-# TODO
+# TODO FOR NEXT MEETING
+- default set of data in DB
+- fixed DB
+- corrected diagrams (first one in conceptual way, second one with correct tables) 
