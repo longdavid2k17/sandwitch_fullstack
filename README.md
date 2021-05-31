@@ -18,9 +18,10 @@ Application will have contain:
 - MySQL database
 
 # DB Schema
-Schemat fizykalny 
+Schemat ERD 
 ![DB_SCHEMA](https://raw.githubusercontent.com/longdavid2k17/sandwitch_fullstack/master/readme_images/db_shema.png)
 
+Schemat fizykalny 
 ![DB_SCHEMA2](https://raw.githubusercontent.com/longdavid2k17/sandwitch_fullstack/master/readme_images/shema_REL.PNG)
 
 # TODO FOR NEXT MEETING
