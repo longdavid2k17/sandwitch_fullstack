@@ -19,7 +19,7 @@ Application will have contain:
 
 # DB Schema
 Schemat fizykalny 
-![DB_SCHEMA](https://raw.githubusercontent.com/longdavid2k17/sandwitch_fullstack/master/readme_images/db_schema.PNG)
+![DB_SCHEMA](https://raw.githubusercontent.com/longdavid2k17/sandwitch_fullstack/master/readme_images/db_shema.png)
 
 ![DB_SCHEMA2](https://raw.githubusercontent.com/longdavid2k17/sandwitch_fullstack/master/readme_images/shema_REL.PNG)
 
