@@ -18,6 +18,8 @@ Spring Boot + Spring Security
 MySQL + Hibernate
 
 # DB Schema
-Schemat fizykalny
+Schemat fizykalny 
 ![DB_SCHEMA](https://raw.githubusercontent.com/longdavid2k17/sandwitch_fullstack/master/readme_images/db_schema.PNG)
+
+![DB_SCHEMA2](https://raw.githubusercontent.com/longdavid2k17/sandwitch_fullstack/master/readme_images/shema-rel.PNG)
 
