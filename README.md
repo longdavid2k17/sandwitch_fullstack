@@ -13,9 +13,9 @@ Sandwitch is fullstack application, based on Spring Boot and Angular, for orderi
 - admin panel (adding new ingredients, products, managing order status [CRUD])
 
 # Stack
-Angular - for frontend
-Spring Boot + Spring Security - for backend
-MySQL + Hibernate - for DB solution
+* Angular - for frontend
+* Spring Boot + Spring Security - for backend
+* MySQL + Hibernate - for DB solution
 
 Application will have contain:
 - Spring Boot server app
