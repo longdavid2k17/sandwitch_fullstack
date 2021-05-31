@@ -21,7 +21,7 @@ Application will have contain:
 Schemat fizykalny 
 ![DB_SCHEMA](https://raw.githubusercontent.com/longdavid2k17/sandwitch_fullstack/master/readme_images/db_schema.PNG)
 
-![DB_SCHEMA2](https://raw.githubusercontent.com/longdavid2k17/sandwitch_fullstack/master/readme_images/shema-rel.PNG)
+![DB_SCHEMA2](https://raw.githubusercontent.com/longdavid2k17/sandwitch_fullstack/master/readme_images/shema_REL.PNG)
 
 # TODO FOR NEXT MEETING
 - default set of data in DB
