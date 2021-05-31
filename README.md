@@ -23,3 +23,4 @@ Schemat fizykalny
 
 ![DB_SCHEMA2](https://raw.githubusercontent.com/longdavid2k17/sandwitch_fullstack/master/readme_images/shema-rel.PNG)
 
+# TODO
