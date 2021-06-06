@@ -1,1 +1,0 @@
-SELECT * FROM sandwitchdatabase.zamowienie_produkty;
