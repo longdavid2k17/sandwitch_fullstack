@@ -24,6 +24,9 @@ Schemat ERD
 Schemat fizykalny 
 ![DB_SCHEMA2](https://raw.githubusercontent.com/longdavid2k17/sandwitch_fullstack/master/readme_images/shema_REL.PNG)
 
+
+Frontend storybook: https://github.com/AdamJochemczyk/sandwitch-components
+
 # TODO FOR NEXT MEETING
 - default set of data in DB
 - fixed DB
