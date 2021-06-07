@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.25, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: sandwitchdatabase
+-- Host: localhost    Database: sandwitchdatabase
 -- ------------------------------------------------------
 -- Server version	8.0.25
 
@@ -16,28 +16,26 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `produkty`
+-- Table structure for table `state`
 --
 
-DROP TABLE IF EXISTS `produkty`;
+DROP TABLE IF EXISTS `state`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `produkty` (
-  `id_produkty` bigint NOT NULL AUTO_INCREMENT,
-  `nazwa` varchar(45) NOT NULL,
-  `opis` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_produkty`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `state` (
+  `id_state` int NOT NULL,
+  `name` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_state`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `produkty`
+-- Dumping data for table `state`
 --
 
-LOCK TABLES `produkty` WRITE;
-/*!40000 ALTER TABLE `produkty` DISABLE KEYS */;
-INSERT INTO `produkty` VALUES (1,'Hamburger','pyszny hamburge z wołowinką'),(2,'Frytki','złociste frytusie');
-/*!40000 ALTER TABLE `produkty` ENABLE KEYS */;
+LOCK TABLES `state` WRITE;
+/*!40000 ALTER TABLE `state` DISABLE KEYS */;
+/*!40000 ALTER TABLE `state` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +47,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-27 14:38:59
+-- Dump completed on 2021-06-07 11:48:05

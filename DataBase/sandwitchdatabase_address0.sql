@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.25, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: sandwitchdatabase
+-- Host: localhost    Database: sandwitchdatabase
 -- ------------------------------------------------------
 -- Server version	8.0.25
 
@@ -16,37 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `uzytkownicy`
+-- Table structure for table `address`
 --
 
-DROP TABLE IF EXISTS `uzytkownicy`;
+DROP TABLE IF EXISTS `address`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `uzytkownicy` (
-  `id_uzytkownik` int NOT NULL AUTO_INCREMENT,
-  `imie` varchar(45) NOT NULL,
-  `nazwisko` varchar(45) NOT NULL,
-  `adres_linia1` varchar(45) NOT NULL,
-  `adres_linia2` varchar(45) DEFAULT NULL,
-  `kod_pocztowy` varchar(45) NOT NULL,
-  `Miasto` varchar(45) NOT NULL,
-  `numer_telefonu` varchar(45) NOT NULL,
-  `adres_email` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_uzytkownik`),
-  UNIQUE KEY `iduzytkonicy_UNIQUE` (`id_uzytkownik`),
-  UNIQUE KEY `Adres_e-mail_UNIQUE` (`adres_email`),
-  UNIQUE KEY `Numer_telefonu_UNIQUE` (`numer_telefonu`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `address` (
+  `id_address` int NOT NULL,
+  `city` varchar(100) NOT NULL,
+  `state` varchar(100) NOT NULL,
+  `street` varchar(100) NOT NULL,
+  `zip_code` varchar(6) NOT NULL,
+  PRIMARY KEY (`id_address`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `uzytkownicy`
+-- Dumping data for table `address`
 --
 
-LOCK TABLES `uzytkownicy` WRITE;
-/*!40000 ALTER TABLE `uzytkownicy` DISABLE KEYS */;
-INSERT INTO `uzytkownicy` VALUES (1,'Seba','Tutut','Kwiatowa',NULL,'42-600','Tarnowskie Góry','666666666','tutu@tut.com');
-/*!40000 ALTER TABLE `uzytkownicy` ENABLE KEYS */;
+LOCK TABLES `address` WRITE;
+/*!40000 ALTER TABLE `address` DISABLE KEYS */;
+/*!40000 ALTER TABLE `address` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -58,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-27 14:38:59
+-- Dump completed on 2021-06-07 11:48:06

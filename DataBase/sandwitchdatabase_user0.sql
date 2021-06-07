@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.25, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: sandwitchdatabase
+-- Host: localhost    Database: sandwitchdatabase
 -- ------------------------------------------------------
 -- Server version	8.0.25
 
@@ -16,27 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `zamowienie_produkty`
+-- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `zamowienie_produkty`;
+DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `zamowienie_produkty` (
-  `id_zamowienia` bigint NOT NULL,
-  `id_produktu` bigint NOT NULL,
-  PRIMARY KEY (`id_zamowienia`)
+CREATE TABLE `user` (
+  `id_user` int NOT NULL,
+  `name` varchar(80) NOT NULL,
+  `last_name` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `role` varchar(45) NOT NULL,
+  `phone_number` int NOT NULL,
+  PRIMARY KEY (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `zamowienie_produkty`
+-- Dumping data for table `user`
 --
 
-LOCK TABLES `zamowienie_produkty` WRITE;
-/*!40000 ALTER TABLE `zamowienie_produkty` DISABLE KEYS */;
-INSERT INTO `zamowienie_produkty` VALUES (1,1);
-/*!40000 ALTER TABLE `zamowienie_produkty` ENABLE KEYS */;
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-27 14:38:58
+-- Dump completed on 2021-06-07 11:48:06
