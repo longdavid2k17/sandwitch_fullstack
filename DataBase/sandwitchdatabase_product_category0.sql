@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `product_category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `product_category` (
-  `id_productCategory` int NOT NULL,
+  `id_product_category` int NOT NULL,
   `name` varchar(2555) NOT NULL,
   PRIMARY KEY (`id_productCategory`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
