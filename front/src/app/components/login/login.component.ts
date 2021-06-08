@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+//component created to login client by external service
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

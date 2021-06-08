@@ -4,48 +4,21 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
-import { ProductListComponent } from './components/product-list/product-list.component';
-import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductService } from './services/product/product.service';
+import {RegisterService} from './services/register/register.service';
+import { UsersService } from './services/users-manager/users-manager.service';
+import {OrdersManagerService} from './services/orders-manager/orders-manager.service';
+import {OrderService} from './services/order/order.service';
+import {LoginService} from './services/login/login.service'
+import {CategoryManagerService} from './services/categories/category-manager.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { MenuComponent } from './components/menu/menu.component';
-import { RegisterComponent } from './components/register/register.component';
-import { LoginComponent } from './components/login/login.component';
-import { ProductsManagerComponent } from './components/admin/products-manager/products-manager.component';
-import { UserManagerComponent } from './components/admin/user-manager/user-manager.component';
-import { CategoryManagerComponent } from './components/admin/category-manager/category-manager.component';
-import { OrderManagerComponent } from './components/admin/order-manager/order-manager.component';
-import { Custom404Component } from './components/custom404/custom404.component';
-
-const routes: Routes = [
-  { path: 'products/:id', component: ProductDetailsComponent },
-  { path: 'search/:keyword', component: ProductListComponent },
-  { path: 'category/:id', component: ProductListComponent },
-  { path: 'category', component: ProductListComponent },
-  { path: 'products', component: ProductListComponent },
-  { path: '', redirectTo: '/products', pathMatch: 'full' },
-  { path: '**', redirectTo: '/products', pathMatch: 'full' },
-];
+import { RoutingModule } from './routing/routing.module';
 @NgModule({
-  declarations: [
-    AppComponent,
-    ProductCategoryMenuComponent,
-    ProductListComponent,
-    ProductDetailsComponent,
-    MenuComponent,
-    RegisterComponent,
-    LoginComponent,
-    ProductsManagerComponent,
-    UserManagerComponent,
-    CategoryManagerComponent,
-    OrderManagerComponent,
-    Custom404Component,
-  ],
+  declarations: [AppComponent],
   imports: [
-    RouterModule.forRoot(routes),
+    RoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
@@ -53,7 +26,13 @@ const routes: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [ProductService],
+  providers: [
+    ProductService,
+    RegisterService,
+    UsersService,
+    OrdersManagerService,
+    LoginService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
