@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+//component for catch unresolved routes
 @Component({
   selector: 'app-custom404',
   templateUrl: './custom404.component.html',
