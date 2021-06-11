@@ -25,4 +25,16 @@ public class Address
     @ManyToOne
     @JoinColumn(name = "state")
     private State state;
+
+    @Override
+    public String toString()
+    {
+        return "Address{" +
+                "id=" + id +
+                ", street='" + street + '\'' +
+                ", zip_code='" + zip_code + '\'' +
+                ", city='" + city + '\'' +
+                ", state=" + state +
+                '}';
+    }
 }

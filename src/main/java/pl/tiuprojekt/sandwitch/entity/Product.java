@@ -1,11 +1,9 @@
 package pl.tiuprojekt.sandwitch.entity;
 
-
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name="product")
@@ -36,9 +34,4 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "category_id",nullable = false)
     private Category category;
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "order_item_id",nullable = false)
-    private Set<OrderItem> order_item;
-
 }
