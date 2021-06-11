@@ -37,10 +37,8 @@ public class Product {
     @JoinColumn(name = "category_id",nullable = false)
     private Category category;
 
-    /*@ManyToMany(mappedBy = "products")
-    Set<Order> order;*/
-
-    /*@ManyToMany(cascade = CascadeType.ALL,mappedBy = "products")
-    private Set<OrderItem> orderItems;*/
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "order_item_id",nullable = false)
+    private Set<OrderItem> order_item;
 
 }

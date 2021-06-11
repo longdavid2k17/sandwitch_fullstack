@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name="order_item")
@@ -26,7 +27,8 @@ public class OrderItem
     @JoinColumn(name="order_id",nullable = false)
     private Order order;
 
-/*    @ManyToMany(cascade = CascadeType.ALL,mappedBy = "order_items")
-    private Set<Product> products;*/
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "order_item_id",nullable = false)
+    private Set<Product> products;
 
 }
