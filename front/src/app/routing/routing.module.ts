@@ -16,15 +16,21 @@ import { ClientOrderComponent } from '../components/client-order/client-order.co
 
 //Import components, declare components, add routes and export components
 const routes: Routes = [
-  { path: 'products/:id', component: ProductDetailsComponent },
-  { path: 'search/:keyword', component: ProductListComponent },
-  { path: 'category/:id', component: ProductListComponent },
-  { path: 'category', component: ProductListComponent },
-  { path: 'products', component: ProductListComponent },
-  { path: '', redirectTo: '/products', pathMatch: 'full' },
-  { path: '**', redirectTo: '/products', pathMatch: 'full' },
+  {
+    path: 'products',
+    children: [
+      { path: '', component: ProductListComponent },
+      { path: 'products/:id', component: ProductDetailsComponent },
+    ],
+  },
+  { path: 'order', component: ClientOrderComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'category-manager', component: CategoryManagerComponent },
+  { path: 'order-manager', component: OrderManagerComponent },
+  { path: 'products-manager', component: ProductsManagerComponent },
+  { path: 'user-manager', component: UserManagerComponent },
 ];
-
 
 @NgModule({
   imports: [CommonModule, RouterModule.forRoot(routes)],
