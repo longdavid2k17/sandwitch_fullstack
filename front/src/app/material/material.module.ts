@@ -25,9 +25,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
 
 const MaterialComponents = [MatButtonModule];
 
@@ -59,9 +59,9 @@ const MaterialComponents = [MatButtonModule];
     MatTooltipModule,
     MatSnackBarModule,
     MatDialogModule,
-    MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    MatTableModule,
   ],
   providers: [MatDatepickerModule],
   exports: [
@@ -91,9 +91,9 @@ const MaterialComponents = [MatButtonModule];
     MatTooltipModule,
     MatSnackBarModule,
     MatDialogModule,
-    MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    MatTableModule,
   ],
 })
 export class MaterialModule {}

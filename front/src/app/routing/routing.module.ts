@@ -13,6 +13,8 @@ import { ProductCategoryMenuComponent } from '../components/product-category-men
 import { ProductListComponent } from '../components/product-list/product-list.component';
 import { ProductDetailsComponent } from '../components/product-details/product-details.component';
 import { ClientOrderComponent } from '../components/client-order/client-order.component';
+import { MaterialModule } from '../material/material.module';
+import { FormsModule } from '@angular/forms';
 
 //Import components, declare components, add routes and export components
 const routes: Routes = [
@@ -33,7 +35,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [CommonModule, RouterModule.forRoot(routes)],
+  imports: [
+    CommonModule,
+    RouterModule.forRoot(routes),
+    MaterialModule,
+    FormsModule,
+  ],
   exports: [
     RouterModule,
     ProductCategoryMenuComponent,

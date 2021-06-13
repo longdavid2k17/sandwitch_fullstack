@@ -1,0 +1,10 @@
+table{
+    width: 100%;
+}
+.actions >button{
+    margin: 0 .5rem
+}
+mat-card-actions form{
+    display: grid;
+    place-items: center;
+}
