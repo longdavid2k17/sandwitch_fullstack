@@ -1,4 +1,4 @@
-package pl.tiuprojekt.sandwitch;
+package pl.tiuprojekt.sandwitch.repo;
 
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -7,12 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import pl.tiuprojekt.sandwitch.entity.Address;
 import pl.tiuprojekt.sandwitch.entity.State;
-import pl.tiuprojekt.sandwitch.repo.AddressRepo;
-import pl.tiuprojekt.sandwitch.repo.StateRepo;
 
-import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.Optional;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -27,21 +22,6 @@ public class AddressRepoTests
 
     @Autowired
     private StateRepo stateRepo;
-
-    @Autowired
-    private DataSource dataSource;
-
-    @Test
-    public void testConnectionDb() throws SQLException
-    {
-        try (Connection connection = dataSource.getConnection())
-        {
-            assertThat(connection.getCatalog()).isEqualTo("sandwitchdatabase");
-            log.info("catalog:" + connection.getCatalog());
-            assertThat(connection.getTransactionIsolation()).isEqualTo(4);
-            log.info("isolation_level:" + connection.getTransactionIsolation());
-        }
-    }
 
     @Test
     public void insertAndCheckForAddresses()
