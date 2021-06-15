@@ -41,6 +41,9 @@ public class Order {
     @Column(name = "status")
     private boolean status;
 
+    @Column(name = "address_id")
+    private Long address_id;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_orders", referencedColumnName = "id_address")
     private Address address;

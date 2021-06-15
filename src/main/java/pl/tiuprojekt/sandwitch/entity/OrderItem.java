@@ -22,6 +22,9 @@ public class OrderItem
     @Column(name = "unit_price")
     private double unit_price;
 
+    @Column(name = "product_id")
+    private int product_id;
+
     @ManyToOne
     @JoinColumn(name="order_id",nullable = false)
     private Order order;
