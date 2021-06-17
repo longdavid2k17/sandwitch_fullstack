@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 
 //component created for table with pagination and filter to manage products
 //service product/product.service
@@ -39,7 +40,7 @@ export class ProductsManagerComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -59,9 +60,19 @@ export class ProductsManagerComponent implements OnInit {
   price: number = 0;
   category: string = '';
 
-  addProduct(){
+  addProduct() {
     //TODO:
     //send to service
-    console.log(this.productName,this.price,this.category)
-  };
+    console.log(this.productName, this.price, this.category);
+  }
+
+  editProduct(row: any) {
+    this.router.navigate(['products-manager/edit-product'], {
+      state: { data: row.id },
+    });
+  }
+  deleteProduct(row: any) {
+    //TODO: go to service
+    console.log(row);
+  }
 }

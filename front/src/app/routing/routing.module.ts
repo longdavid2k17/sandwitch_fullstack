@@ -17,6 +17,7 @@ import { MaterialModule } from '../material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OrderItemComponent } from '../components/admin/orders/order-item/order-item.component';
 import { CategoryEditComponent } from '../components/admin/category-edit/category-edit.component';
+import { ProductEditComponent } from '../components/admin/product-edit/product-edit.component';
 
 //Import components, declare components, add routes and export components
 const routes: Routes = [
@@ -38,7 +39,13 @@ const routes: Routes = [
     ],
   },
   { path: 'order-manager', component: OrderManagerComponent },
-  { path: 'products-manager', component: ProductsManagerComponent },
+  {
+    path: 'products-manager',
+    children: [
+      { path: '', component: ProductsManagerComponent },
+      { path: 'edit-product', component: ProductEditComponent },
+    ],
+  },
   { path: 'user-manager', component: UserManagerComponent },
 ];
 
@@ -66,6 +73,7 @@ const routes: Routes = [
     ClientOrderComponent,
     OrderItemComponent,
     CategoryEditComponent,
+    ProductEditComponent,
   ],
   declarations: [
     ProductCategoryMenuComponent,
@@ -82,6 +90,7 @@ const routes: Routes = [
     ClientOrderComponent,
     OrderItemComponent,
     CategoryEditComponent,
+    ProductEditComponent,
   ],
 })
 export class RoutingModule {}
