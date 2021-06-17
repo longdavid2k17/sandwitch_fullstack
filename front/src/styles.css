@@ -167,3 +167,13 @@ section{
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.gallery{
+    display: grid;
+    justify-content: center;
+}
+@media (min-width: 900px){
+    .gallery{
+        grid-template-columns: repeat(3,1fr );
+    }
+}
