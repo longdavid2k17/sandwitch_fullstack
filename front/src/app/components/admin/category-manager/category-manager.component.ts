@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 
 export interface CategoryElement {
   name: string;
@@ -41,8 +42,19 @@ export class CategoryManagerComponent {
     }
   }
 
+  constructor(private router:Router){
+
+  }
+
   addCategory(name:string){
     //TODO: go to service
     console.log(name)
+  }
+  editCategory(row:any){
+    this.router.navigate(['category-manager/edit-category'], { state: { data: row } });
+  }
+  deleteCategory(row:any){
+    //TODO: go to service
+    console.log(row)
   }
 }

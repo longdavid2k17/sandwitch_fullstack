@@ -14,13 +14,14 @@ import { ProductListComponent } from '../components/product-list/product-list.co
 import { ProductDetailsComponent } from '../components/product-details/product-details.component';
 import { ClientOrderComponent } from '../components/client-order/client-order.component';
 import { MaterialModule } from '../material/material.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OrderItemComponent } from '../components/admin/orders/order-item/order-item.component';
+import { CategoryEditComponent } from '../components/admin/category-edit/category-edit.component';
 
 //Import components, declare components, add routes and export components
 const routes: Routes = [
   {
-    path: 'products',
+    path: '',
     children: [
       { path: '', component: ProductListComponent },
       { path: 'products/:id', component: ProductDetailsComponent },
@@ -29,7 +30,13 @@ const routes: Routes = [
   { path: 'order', component: ClientOrderComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'category-manager', component: CategoryManagerComponent },
+  {
+    path: 'category-manager',
+    children: [
+      { path: '', component: CategoryManagerComponent },
+      { path: 'edit-category', component: CategoryEditComponent },
+    ],
+  },
   { path: 'order-manager', component: OrderManagerComponent },
   { path: 'products-manager', component: ProductsManagerComponent },
   { path: 'user-manager', component: UserManagerComponent },
@@ -41,6 +48,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     MaterialModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [
     RouterModule,
@@ -57,6 +65,7 @@ const routes: Routes = [
     Custom404Component,
     ClientOrderComponent,
     OrderItemComponent,
+    CategoryEditComponent,
   ],
   declarations: [
     ProductCategoryMenuComponent,
@@ -72,6 +81,7 @@ const routes: Routes = [
     Custom404Component,
     ClientOrderComponent,
     OrderItemComponent,
+    CategoryEditComponent,
   ],
 })
 export class RoutingModule {}
