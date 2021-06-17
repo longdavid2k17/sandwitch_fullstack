@@ -32,7 +32,7 @@ export class ProductEditComponent implements OnInit {
   }
 
   updateProduct(){
-    
+    //TODO: connect to service
   }
 
 }

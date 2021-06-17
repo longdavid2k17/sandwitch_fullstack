@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import {Router} from "@angular/router"
 
 
 export interface UserElement{
@@ -83,7 +84,7 @@ export class UserManagerComponent implements OnInit {
   dataSource = new MatTableDataSource<UserElement>(ELEMENT_DATA);
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -97,5 +98,16 @@ export class UserManagerComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  updateUser(row: any) {
+    this.router.navigate(['user-manager/edit-user'], {
+      state: { data: row },
+    });
+  }
+
+  deleteUser(row: any) {
+    //TODO: go to service
+    console.log(row);
   }
 }

@@ -45,8 +45,8 @@
       <th mat-header-cell *matHeaderCellDef>Action</th>
       <td mat-cell *matCellDef="let row">
         <div class="actions">
-          <button mat-raised-button color="primary">Edit</button
-          ><button mat-raised-button color="warn">Delete</button>
+          <button mat-raised-button color="primary" (click)="updateUser(row)">Edit</button
+          ><button mat-raised-button color="warn" (click)="deleteUser(row)">Delete</button>
         </div>
       </td>
     </ng-container>
