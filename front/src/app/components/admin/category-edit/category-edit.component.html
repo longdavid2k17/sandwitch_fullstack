@@ -1,0 +1,25 @@
+<div class="box">
+  <mat-card class="form-card">
+    <mat-card-header>
+      <h1>Edytuj nazwe kategorii:</h1>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="categoryForm" (submit)="updateCategory()">
+        <mat-form-field>
+          <mat-label>Kategoria</mat-label>
+          <input matInput formControlName="category" required />
+        </mat-form-field>
+        <div class="actions">
+          <a routerLink="/category-manager">
+              <button mat-raised-button>
+                Wróć
+              </button>
+          </a>
+          <button mat-raised-button color="primary" type="submit">
+            Edytuj
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

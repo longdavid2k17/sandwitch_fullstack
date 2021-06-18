@@ -1,0 +1,50 @@
+.menu {
+  background-color: #17a2b8;
+  padding: 0.5rem;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+ul {
+  display: flex;
+  list-style-type: none;
+}
+ul > li {
+  padding: 0.5rem;
+}
+li:hover {
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+a:hover {
+  font-weight: 800;
+}
+
+ul li ul {
+  background: #17a2b8;
+  visibility: hidden;
+  opacity: 0;
+  min-width: 5rem;
+  position: absolute;
+  transition: all 0.5s ease;
+  margin-top: 0.5rem;
+  right: 0;
+  display: none;
+  z-index: 1;
+}
+
+ul li:hover > ul,
+ul li ul:hover {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+ul li ul li {
+  clear: both;
+  width: 100%;
+}

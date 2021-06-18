@@ -1,0 +1,10 @@
+<mat-card class="card">
+    <mat-card-header><h1>Tracking number {{orderData.order_tracking_number}}</h1></mat-card-header>
+    <mat-card-subtitle>Status: {{orderData.status}}</mat-card-subtitle>
+    <mat-card-content>
+Items: mapować elementy
+    </mat-card-content>
+    <mat-card-actions class="center">
+        <button mat-raised-button color="primary" (click)="changeStatus(orderData.order_tracking_number)">Gotowe</button>
+    </mat-card-actions>
+</mat-card>

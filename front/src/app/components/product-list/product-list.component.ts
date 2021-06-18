@@ -66,6 +66,10 @@ export class ProductListComponent implements OnInit {
       data => {
         this.products = data;
       }
-    )    
+    )
+  }
+
+  addToCart(product:any){
+    
   }
 }

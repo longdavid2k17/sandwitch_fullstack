@@ -1,1 +1,18 @@
-<p>Menu!</p>
+<header class="menu">
+  <h1 class="menu__logo">Restaurant</h1>
+  <nav class="menu__nav" role="navigation">
+    <ul>
+      <li><a routerLink="">Produkty</a></li>
+      <li><a routerLink="order">Koszyk</a></li>
+      <li>
+        <a>Manager</a>
+        <ul class="dropdown">
+          <li><a routerLink="category-manager">Kategorie</a></li>
+          <li><a routerLink="products-manager">Produkty</a></li>
+          <li><a routerLink="order-manager">Zamowienia</a></li>
+          <li><a routerLink="user-manager">Uzytkownicy</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
