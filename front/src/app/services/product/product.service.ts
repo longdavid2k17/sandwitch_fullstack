@@ -20,6 +20,9 @@ export class ProductService {
     const searchUrl=`${this.baseUrl}/${theProductId}`;
     return this.httpClient.get<Product>(searchUrl);
   }
+  getAllProducts():Observable<Product[]>{
+    return this.httpClient.get<GetResponseProduct>(this.baseUrl).pipe(map(response=>response._embedded.products))
+  }
   private getProducts(searchUrl: string): Observable<Product[]> {
     return this.httpClient.get<GetResponseProduct>(searchUrl).pipe(map(response => response._embedded.products));
   }
@@ -39,6 +42,21 @@ export class ProductService {
   getProductCategories():Observable<ProductCategory[]> {
     return this.httpClient.get<GetResponseCategory>(this.categoryUrl).pipe
     (map(response => response._embedded.categories));
+  }
+
+  addProduct(name:string,price:number,category:string){
+    return this.httpClient.post<any>(this.baseUrl,{
+      name,
+      price,
+      category
+    })
+  }
+  updateProduct(data:any){
+    return this.httpClient.put<any>(this.baseUrl+`/${data.id}`,data)
+  }
+
+  deleteProduct(id:number){
+    return this.httpClient.delete<any>(this.baseUrl+`/${id}`)
   }
 }
 

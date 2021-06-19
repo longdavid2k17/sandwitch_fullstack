@@ -2,67 +2,11 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import {Router} from "@angular/router"
+import {
+  UsersService,
+  User,
+} from 'src/app/services/users-manager/users-manager.service';
 
-
-export interface UserElement{
-  id:number;
-  name:string;
-  last_name:string;
-  email:string;
-  role:string;
-  phone_number:number;
-}
-
-const ELEMENT_DATA: UserElement[] = [
-  {
-    id: 1,
-    name: 'Name1',
-    last_name: 'Last1',
-    email: 'a@a.pl',
-    role: 'admin',
-    phone_number: 123456789,
-  },
-  {
-    id: 2,
-    name: 'Name1',
-    last_name: 'Last1',
-    email: 'a@a.pl',
-    role: 'admin',
-    phone_number: 123456789,
-  },
-  {
-    id: 3,
-    name: 'Name1',
-    last_name: 'Last1',
-    email: 'a@a.pl',
-    role: 'admin',
-    phone_number: 123456789,
-  },
-  {
-    id: 4,
-    name: 'Name1',
-    last_name: 'Last1',
-    email: 'a@a.pl',
-    role: 'admin',
-    phone_number: 123456789,
-  },
-  {
-    id: 5,
-    name: 'Name1',
-    last_name: 'Last1',
-    email: 'a@a.pl',
-    role: 'admin',
-    phone_number: 123456789,
-  },
-  {
-    id: 6,
-    name: 'Name1',
-    last_name: 'Last1',
-    email: 'a@a.pl',
-    role: 'admin',
-    phone_number: 123456789,
-  },
-];
 //component created for table with pagination and filter to manage users in app
 //service users-manager/users-manager.service
 @Component({
@@ -81,12 +25,16 @@ export class UserManagerComponent implements OnInit {
     'action',
   ];
 
-  dataSource = new MatTableDataSource<UserElement>(ELEMENT_DATA);
+  dataSource = new MatTableDataSource<User>();
+  
+  constructor(private router: Router,private userService:UsersService) {}
+  
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-
-  constructor(private router: Router) {}
-
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.userService.getAllUsers().subscribe((data)=>{
+      this.dataSource.data=data
+    })
+  }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -107,7 +55,8 @@ export class UserManagerComponent implements OnInit {
   }
 
   deleteUser(row: any) {
-    //TODO: go to service
-    console.log(row);
+    this.userService.deleteUser(row).subscribe(data=>{
+      console.log(data)
+    })
   }
 }

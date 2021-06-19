@@ -1,4 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
+import { OrdersManagerService } from 'src/app/services/orders-manager/orders-manager.service';
 
 @Component({
   selector: 'app-order-item',
@@ -8,14 +9,12 @@ import { Component, OnInit,Input } from '@angular/core';
 export class OrderItemComponent implements OnInit {
 
   @Input() orderData:any;
-  constructor() {}
+  constructor(private OrderManager:OrdersManagerService) {}
 
   ngOnInit(): void {}
 
   changeStatus(trackingNumber:string){
-    //TODO:
-    //call to api to change order number
-    console.log("Zmiana", trackingNumber)
+    this.OrderManager.updateOrder(trackingNumber)
   }
 
 }

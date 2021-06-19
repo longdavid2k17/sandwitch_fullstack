@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CategoryManagerService } from 'src/app/services/categories/category-manager.service';
 
 @Component({
   selector: 'app-category-edit',
@@ -13,7 +14,7 @@ export class CategoryEditComponent implements OnInit {
   categoryName:string="";
   id_product_category:number;
   
-  constructor(private router:Router,private formBuilder:FormBuilder) {
+  constructor(private router:Router,private formBuilder:FormBuilder,private categoryManager:CategoryManagerService) {
     this.categoryName=this.router.getCurrentNavigation()?.extras?.state?.data.name;
     this.id_product_category =
       this.router.getCurrentNavigation()?.extras?.state?.data.position;
@@ -28,9 +29,7 @@ export class CategoryEditComponent implements OnInit {
 
   updateCategory(){
     if(!this.categoryForm.valid) return;
-
-    //TODO: go to service
-    console.log(this.categoryForm.value)
+    this.categoryManager.updateCategory(this.categoryForm.value);
   }
 
 }

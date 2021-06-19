@@ -13,7 +13,7 @@ export class CategoryManagerService {
 
   //CREATE
   createCategory(name: string): Observable<any> {
-    return this.httpClient.post(this.categoryUrl,{
+    return this.httpClient.post<any>(this.categoryUrl,{
       name: name,
     })
   }
@@ -24,7 +24,15 @@ export class CategoryManagerService {
       .pipe(map((response) => response._embedded.categories));
   }
   //UPDATE
-  updateCategory() {}
+  updateCategory(category:any) {
+    console.log(category)
+    return this.httpClient.put<any>(this.categoryUrl,{
+      id: category.id,
+      name: category.name,
+    })
+  }
   //DELETE
-  deleteCategory() {}
+  deleteCategory(id:number) {
+    return this.httpClient.delete<any>(this.categoryUrl + `/${id}`,)
+  }
 }

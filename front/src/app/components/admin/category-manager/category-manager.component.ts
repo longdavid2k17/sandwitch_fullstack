@@ -58,7 +58,8 @@ export class CategoryManagerComponent implements OnInit {
     });
   }
   deleteCategory(row: any) {
-    //TODO: go to service
-    console.log(row);
+    this.categoryManager.deleteCategory(row.id).subscribe(data=>{
+      console.log(data)
+    })
   }
 }
