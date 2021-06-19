@@ -1,24 +1,25 @@
-<div class="gallery">
-  <!-- loop over the collection of products -->
-  <mat-card *ngFor="let tempProduct of products" class="card">
-    <mat-card-header>
-        <mat-card-title>
-            <a routerLink="/products/{{ tempProduct.id }}">
-                <h1>{{ tempProduct.name }}</h1>
-            </a>
-        </mat-card-title>
-    </mat-card-header> 
-    <img mat-card-image src={{tempProduct.imageUrl}} alt={{tempProduct.name}}> 
-      <mat-card-content>
-          <p>Cena: {{ tempProduct.unitPrice | currency: "USD" }}</p>
-          <p>{{tempProduct.description}}</p>
-    </mat-card-content>
-      <mat-card-actions class="center">
-          <button mat-raised-button color="primary" (click)="addToCart(tempProduct)">Dodaj do koszyka</button>
-      </mat-card-actions>
-      <a href="#" class="primary-btn">Add to cart</a>
-  </mat-card>
-  <div *ngIf="products?.length == 0" class="" role="alert">
-    No products found.
+<div class="container">
+  <div class="gallery">
+    <!-- loop over the collection of products -->
+    <mat-card *ngFor="let tempProduct of products" class="card">
+      <mat-card-header>
+          <mat-card-title>
+              <a [routerLink]="'/products/'+tempProduct.id">
+                  <h1>{{ tempProduct.name }}</h1>
+              </a>
+          </mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src={{tempProduct.imageUrl}} alt={{tempProduct.name}}>
+        <mat-card-content>
+            <p>Cena: {{ tempProduct.unit_price | currency: "USD" }}</p>
+            <p>{{tempProduct.description}}</p>
+      </mat-card-content>
+        <mat-card-actions class="center">
+            <button mat-raised-button color="primary" (click)="addToCart(tempProduct)">Dodaj do koszyka</button>
+        </mat-card-actions>
+    </mat-card>
+    <div *ngIf="products?.length == 0" class="" role="alert">
+      No products found.
+    </div>
   </div>
 </div>

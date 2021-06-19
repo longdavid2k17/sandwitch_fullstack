@@ -18,10 +18,16 @@ body{
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
+.container{
+    display: flex;
+    justify-content: center;
+}
 .gallery{
     display: grid;
     justify-content: center;
+    grid-gap: 1.5rem;
+    padding: 2rem;
+    width: 1100px;
 }
 @media (min-width: 900px){
     .gallery{
