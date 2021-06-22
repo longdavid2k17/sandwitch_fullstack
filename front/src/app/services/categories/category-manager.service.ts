@@ -25,11 +25,13 @@ export class CategoryManagerService {
   }
   //UPDATE
   updateCategory(category:any) {
-    console.log(category)
-    return this.httpClient.put<any>(this.categoryUrl,{
-      id: category.id,
-      name: category.name,
-    })
+    return this.httpClient.put<any>(
+      this.categoryUrl + `/${category.id_product_category}`,
+      {
+        id: category.id_product_category,
+        name: category.category,
+      }
+    );
   }
   //DELETE
   deleteCategory(id:number) {

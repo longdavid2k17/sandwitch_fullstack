@@ -17,7 +17,7 @@ export class CategoryEditComponent implements OnInit {
   constructor(private router:Router,private formBuilder:FormBuilder,private categoryManager:CategoryManagerService) {
     this.categoryName=this.router.getCurrentNavigation()?.extras?.state?.data.name;
     this.id_product_category =
-      this.router.getCurrentNavigation()?.extras?.state?.data.position;
+      this.router.getCurrentNavigation()?.extras?.state?.data.id;
     this.categoryForm=this.formBuilder.group({
       category: [this.categoryName,[Validators.required]],
       id_product_category: [this.id_product_category]
@@ -29,7 +29,12 @@ export class CategoryEditComponent implements OnInit {
 
   updateCategory(){
     if(!this.categoryForm.valid) return;
-    this.categoryManager.updateCategory(this.categoryForm.value);
+    this.categoryManager
+      .updateCategory(this.categoryForm.value)
+      .subscribe((data) => {
+        console.log(data);
+      });
   }
 
 }
+
