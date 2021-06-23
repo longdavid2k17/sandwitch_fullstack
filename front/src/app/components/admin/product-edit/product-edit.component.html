@@ -26,9 +26,16 @@
             >Dostępny?</mat-checkbox
           >
         </div>
-        <mat-form-field>
-          <mat-label>Kategoria</mat-label>
-          <input matInput formControlName="category_id" required />
+        <mat-form-field appearance="fill">
+          <mat-label>Nazwa kategorii</mat-label>
+          <mat-select [(ngModel)]="categoryid">
+            <mat-option
+              *ngFor="let category of categories"
+              [value]="category.id"
+            >
+              {{ category.name }}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
         <div class="actions">
           <a routerLink="/products-manager">
