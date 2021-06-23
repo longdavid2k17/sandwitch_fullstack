@@ -31,11 +31,9 @@ export class ProductsManagerComponent implements OnInit {
   
   ngOnInit(): void {
     this.productService.getAllProducts().subscribe((data:Product[])=>{
-      console.log(data)
       this.dataSource.data=data
     })
     this.categoryService.getAllCategories().subscribe((data:any)=>{
-      console.log(data)
       this.categories=data;
     })
   }
@@ -53,7 +51,7 @@ export class ProductsManagerComponent implements OnInit {
   }
 
   productName: string = '';
-  price: number = 0;
+  price: number=0;
   category: string = '';
 
   addProduct() {

@@ -51,6 +51,7 @@ export class CategoryManagerComponent implements OnInit {
     this.categoryManager.createCategory(name).subscribe(data=>{
       console.log(data)
     })
+    window.location.reload();
   }
   editCategory(row: any) {
     this.router.navigate(['category-manager/edit-category'], {
@@ -61,5 +62,6 @@ export class CategoryManagerComponent implements OnInit {
     this.categoryManager.deleteCategory(row.id).subscribe(data=>{
       console.log(data)
     })
+    window.location.reload();
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UsersService } from 'src/app/services/users-manager/users-manager.service';
 
 @Component({
   selector: 'app-user-edit',
@@ -10,30 +11,25 @@ import { Router } from '@angular/router';
 export class UserEditComponent implements OnInit {
 
   userForm:FormGroup
- /* name:string;
-  last_name:string;
-  email:string;
-  role:string;
-  phone_number:number;*/
 
-  constructor(private router:Router,private formBuilder:FormBuilder) { 
-    console.log(router.getCurrentNavigation()?.extras.state?.data);
+  constructor(private router:Router,private formBuilder:FormBuilder,private userManager:UsersService) {
+   const {id,name,last_name,phone_number,role,email_address} =router.getCurrentNavigation()?.extras.state?.data;
 
-    //TODO: connect to BE
-    this.userForm=this.formBuilder.group({
-      name: [null,[Validators.required]],
-      last_name: [null,[Validators.required]],
-      email: [null,[Validators.required]],
-      role: [null,[Validators.required]],
-      phone_number:[null,[Validators.required]],
-    })
+    this.userForm = this.formBuilder.group({
+      name: [name, [Validators.required]],
+      last_name: [last_name, [Validators.required]],
+      email: [email_address, [Validators.required]],
+      role: [role, [Validators.required]],
+      phone_number: [phone_number, [Validators.required]],
+    });
   }
 
   ngOnInit(): void {
   }
 
   updateUser(){
-    //TODO: connect to BE
+    if (!this.userForm.valid) return;
+    this.userManager.updateUser(this.userForm.value).subscribe((data)=>{console.log(data)});
   }
 
 }

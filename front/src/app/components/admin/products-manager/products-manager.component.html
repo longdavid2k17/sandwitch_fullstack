@@ -64,14 +64,14 @@
         <mat-label>Cena</mat-label>
         <input
           matInput
-          placeholder="Pizza"
+          placeholder="Cena"
           type="number"
           [(ngModel)]="price"
         />
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Nazwa kategorii</mat-label>
-        <mat-select>
+        <mat-select [(ngModel)]="category">
           <mat-option *ngFor="let category of categories" [value]="category.id">
             {{category.name}}
           </mat-option>
