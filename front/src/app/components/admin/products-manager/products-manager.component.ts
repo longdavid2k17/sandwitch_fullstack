@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { CategoryManagerService } from 'src/app/services/categories/category-manager.service';
 import { ProductService } from 'src/app/services/product/product.service';
 import {Product} from "../../../common/product"
 
@@ -18,18 +19,24 @@ export class ProductsManagerComponent implements OnInit {
     'name',
     'unit_price',
     'available',
-    'category',
     'action',
   ];
   dataSource = new MatTableDataSource<Product>();
 
-  constructor(private router: Router,private productService:ProductService) {}
+  categories:any;
+
+  constructor(private router: Router,private productService:ProductService,private categoryService:CategoryManagerService) {}
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   
   ngOnInit(): void {
     this.productService.getAllProducts().subscribe((data:Product[])=>{
+      console.log(data)
       this.dataSource.data=data
+    })
+    this.categoryService.getAllCategories().subscribe((data:any)=>{
+      console.log(data)
+      this.categories=data;
     })
   }
 

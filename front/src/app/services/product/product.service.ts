@@ -45,10 +45,14 @@ export class ProductService {
   }
 
   addProduct(name:string,price:number,category:string){
+    console.log(name,price,category)
     return this.httpClient.post<any>(this.baseUrl,{
       name,
-      price,
-      category
+      description: "test",
+      unit_price:price,
+      image_url: "test",
+      available: true,
+      category_id: 1,
     })
   }
   updateProduct(data:any){
