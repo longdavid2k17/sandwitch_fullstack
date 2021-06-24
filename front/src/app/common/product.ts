@@ -3,7 +3,7 @@ export class Product {
     name:string='';
     description:string='';
     unit_price:number=0;
-    imageUrl:string='';
+    imgUrl:string='';
     available:boolean=false;
-    
+
 }

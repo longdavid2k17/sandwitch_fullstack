@@ -9,10 +9,10 @@
               </a>
           </mat-card-title>
       </mat-card-header>
-      <img mat-card-image src={{tempProduct.imageUrl}} alt={{tempProduct.name}}>
+      <img mat-card-imag src="{{ tempProduct.imgUrl }}" alt={{tempProduct.name}} width="200px" height="200px">
         <mat-card-content>
-            <p>Cena: {{ tempProduct.unit_price | currency: "USD" }}</p>
-            <p>{{tempProduct.description}}</p>
+          <p>Cena: <b>{{ tempProduct.unit_price | currency: "PLN" }}</b></p>
+          <p><i>{{tempProduct.description}}</i></p>
       </mat-card-content>
         <mat-card-actions class="center">
             <button mat-raised-button color="primary" (click)="addToCart(tempProduct)">Dodaj do koszyka</button>

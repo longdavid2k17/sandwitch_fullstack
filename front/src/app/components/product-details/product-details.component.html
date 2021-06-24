@@ -1,14 +1,15 @@
 
 <div class="detail-section">
-    <div class="Ccontainer-fluid">
-    
-        <img src="{{product.imageUrl}}" class="detail-img">
+    <div class="container-fluid">
+        <img src="{{product.imgUrl}}" class="detail-img" width="25%" height="25%">
         <h3>{{product.name}}</h3>
-        <div class="price">{{product.unit_price | currency:'USD'}}</div>
-        <button class="btn btn-primary btn-sm">Add to Cart</button>
+        <div class="price">
+          <b>{{product.unit_price | currency:'PLN'}}</b>
+        </div>
+        <button mat-raised-button color="primary">Dodaj do zamówienia</button>
         <hr>
-        <h4>Description</h4>
+        <h4>Opis</h4>
         <p>{{product.description}}</p>
-        <a routerLink="/products" class="mt-5">Back to Product List</a>
+        <a routerLink="/products" class="mt-5">Wróć</a>
     </div>
-    </div>
+</div>

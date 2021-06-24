@@ -64,12 +64,13 @@ export class ProductListComponent implements OnInit {
     // now get the products for the given category id
     this.productService.getProductsList(this.currentCategoryId).subscribe(
       data => {
+        console.log(data);
         this.products = data;
       }
     )
   }
 
   addToCart(product:any){
-    
+
   }
 }
