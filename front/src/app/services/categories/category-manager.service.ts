@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ProductCategory } from 'src/app/common/product-category';
 
 @Injectable({
   providedIn: 'root',
@@ -18,9 +19,9 @@ export class CategoryManagerService {
     })
   }
   //READ
-  getAllCategories(): Observable<any> {
+  getAllCategories(): Observable<ProductCategory[]> {
     return this.httpClient
-      .get<any>(this.categoryUrl)
+      .get<GetResponseCategory>(this.categoryUrl)
       .pipe(map((response) => response._embedded.categories));
   }
   //UPDATE
@@ -37,4 +38,10 @@ export class CategoryManagerService {
   deleteCategory(id:number) {
     return this.httpClient.delete<any>(this.categoryUrl + `/${id}`,)
   }
+}
+interface GetResponseCategory{
+  _embedded:{
+    categories: ProductCategory[];
+  }
+
 }

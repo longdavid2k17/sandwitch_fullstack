@@ -5,9 +5,13 @@
     </mat-card-header>
     <mat-card-content>
       <form [formGroup]="categoryForm" (submit)="updateCategory()">
-        <mat-form-field>
-          <mat-label>Kategoria</mat-label>
-          <input matInput formControlName="category" required />
+        <mat-form-field appearance="fill">
+          <mat-label>Nazwa kategorii</mat-label>
+          <mat-select [(ngModel)]="category">
+            <mat-option *ngFor="let category of categories" [value]="category.id">
+              {{category.name}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
         <div class="actions">
           <a routerLink="/category-manager">

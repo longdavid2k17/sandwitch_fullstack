@@ -43,11 +43,13 @@ export class ProductListComponent implements OnInit {
     this.productService.searchProducts(theKeyword).subscribe(
       data => {
         this.products = data;
+        console.log(data);
       }
     )
   }
 
   handleListProducts() {
+
 
     // check if "id" parameter is available
     const hasCategoryId: boolean = this.route.snapshot.paramMap.has('id');

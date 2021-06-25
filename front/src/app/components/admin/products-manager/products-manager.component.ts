@@ -1,7 +1,9 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { ProductCategory } from 'src/app/common/product-category';
 import { CategoryManagerService } from 'src/app/services/categories/category-manager.service';
 import { ProductService } from 'src/app/services/product/product.service';
 import {Product} from "../../../common/product"
@@ -21,11 +23,13 @@ export class ProductsManagerComponent implements OnInit {
     'available',
     'action',
   ];
+  productFormGroup!:FormGroup;
   dataSource = new MatTableDataSource<Product>();
+  //product:Product[]=[] ;
+  categories:ProductCategory[]=[] ;
+  //storage:Storage =sessionStorage;
 
-  categories:any;
-
-  constructor(private router: Router,private productService:ProductService,private categoryService:CategoryManagerService) {}
+  constructor(private router: Router,private productService:ProductService,private categoryService:CategoryManagerService,private formBuilder:FormBuilder) {}
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   
@@ -33,11 +37,27 @@ export class ProductsManagerComponent implements OnInit {
     this.productService.getAllProducts().subscribe((data:Product[])=>{
       this.dataSource.data=data
     })
-    this.categoryService.getAllCategories().subscribe((data:any)=>{
+    this.productService.getProductCategories().subscribe(data=>{
       this.categories=data;
     })
+    this.productFormGroup=this.formBuilder.group(
+      {
+        product:this.formBuilder.group(
+          {
+            name:new FormControl('',[Validators.required,Validators.minLength(2)]),
+            description:new FormControl('',[Validators.required,Validators.minLength(2)]),
+            unit_price:new FormControl('',[Validators.required,Validators.minLength(2)]),
+            available:new FormControl('',[Validators.required,Validators.minLength(2)]),
+            imgUrl:new FormControl('',[Validators.required,Validators.minLength(2)]),
+            category:new FormControl('1',[Validators.required,Validators.minLength(2)])
+          }
+        )
+      }
+    )
+
   }
 
+  
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
@@ -50,12 +70,22 @@ export class ProductsManagerComponent implements OnInit {
     }
   }
 
+  get name(){return this.productFormGroup.get('product.name')};
+  get description(){return this.productFormGroup.get('product.description')};
+  get unit_price(){return this.productFormGroup.get('product.unit_price')};
+  get available(){return this.productFormGroup.get('product.available')};
+  get imgUrl(){return this.productFormGroup.get('product.imgUrl')};
+  get categoryProduct(){return this.productFormGroup.get('product.category')}
   productName: string = '';
   price: number=0;
-  category: string = '';
+  
 
+ 
   addProduct() {
-    this.productService.addProduct(this.productName, this.price, this.category).subscribe((data:any)=>{
+   // this.product.name=this.productName;
+    let product = new Product();
+    product=this.productFormGroup.controls['product'].value;
+    this.productService.addProduct(product).subscribe((data:any)=>{
       console.log(data)
     })
   }

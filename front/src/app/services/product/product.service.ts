@@ -44,23 +44,25 @@ export class ProductService {
     (map(response => response._embedded.categories));
   }
 
-  addProduct(name:string,price:number,category:string){
-    console.log(name,price,category)
-    return this.httpClient.post<any>(this.baseUrl,{
+  addProduct(product:Product):Observable<Product[]>{
+    
+  
+    return this.httpClient.post<Product[]>(this.baseUrl,product);
+      /*{
       name,
       description: "test",
       unit_price:price,
       image_url: "test",
       available: true,
       category_id: 1,
-    })
+    })*/
   }
   updateProduct(data:any){
-    return this.httpClient.put<any>(this.baseUrl+`/${data.id}`,data)
+    return this.httpClient.put<Product[]>(this.baseUrl+`/${data.id}`,data)
   }
 
   deleteProduct(id:number){
-    return this.httpClient.delete<any>(this.baseUrl+`/${id}`)
+    return this.httpClient.delete<Product>(this.baseUrl+`/${id}`)
   }
 }
 

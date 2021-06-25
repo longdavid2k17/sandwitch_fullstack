@@ -13,6 +13,8 @@ export class CategoryEditComponent implements OnInit {
   categoryForm:FormGroup;
   categoryName:string="";
   id_product_category:number;
+  categories:any;
+  category:any;
   
   constructor(private router:Router,private formBuilder:FormBuilder,private categoryManager:CategoryManagerService) {
     this.categoryName=this.router.getCurrentNavigation()?.extras?.state?.data.name;
@@ -25,6 +27,8 @@ export class CategoryEditComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.categoryManager.getAllCategories().subscribe((data:any)=>{
+      this.categories=data;})
   }
 
   updateCategory(){
