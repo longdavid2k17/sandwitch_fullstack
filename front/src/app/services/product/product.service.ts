@@ -57,8 +57,10 @@ export class ProductService {
       category_id: 1,
     })*/
   }
-  updateProduct(data:any){
-    return this.httpClient.put<Product[]>(this.baseUrl+`/${data.id}`,data)
+  updateProduct(product:Product,id:number):Observable<Product[]>{
+    
+    console.log(`Produkt: ${product}`);
+    return this.httpClient.put<Product[]>(this.baseUrl+`/${id}`,product)
   }
 
   deleteProduct(id:number){

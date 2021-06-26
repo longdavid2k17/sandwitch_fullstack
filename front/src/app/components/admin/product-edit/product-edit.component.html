@@ -1,4 +1,4 @@
-<div class="box">
+<!--<div class="box">
   <mat-card class="form-card">
     <mat-card-header>
       <h1>Edytuj produkt:</h1>
@@ -48,4 +48,75 @@
       </form>
     </mat-card-content>
   </mat-card>
+</div> !-->
+<form [formGroup]="productForm" (ngSubmit)="updateProduct()">
+  <div formGroupName="product" clas="form-area">
+   <h3>Edytuj</h3>
+   <div class="row">
+    <div class="col-md-2"><label>ID</label></div>
+    <div class="col-md-9">
+      <div class="input-space">
+        <input formControlName="id" type="number">
+      </div>
+    </div>
+  </div>
+   <div class="row">
+     <div class="col-md-2"><label>Nazwa</label></div>
+     <div class="col-md-9">
+       <div class="input-space">
+         <input formControlName="name" type="text">
+       </div>
+     </div>
+   </div>
+   <div class="row">
+     <div class="col-md-2"><label>Opis</label></div>
+     <div class="col-md-9">
+         <div class="input-space">
+         <input formControlName="description" type="text">
+       </div>
+     </div>
+   </div>
+   <div class="row">
+     <div class="col-md-2"><label>Cena</label></div>
+     <div class="col-md-9">
+         <div class="input-space">
+         <input formControlName="unit_price" type="number">
+       </div>
+     </div>
+   </div>
+   <div class="row">
+     <div class="col-md-2"><label>Dostępny</label></div>
+     <div class="col-md-9">
+         <div class="input-space">
+         <input formControlName="available" type="checkbox">
+       </div>
+     </div>
+   </div>
+   <div class="row">
+     <div class="col-md-2"><label>Adres obrazka</label></div>
+     <div class="col-md-9">
+         <div class="input-space">
+         <input formControlName="imgUrl" type="text">
+       </div>
+     </div>
+   </div>
+   <!-- <div class="row">
+     <div class="col-md-2"><label>Kategoria</label></div>
+     <div class="col-md-9">
+         <div class="input-space">
+   <select formControlName="category">
+     <option *ngFor="let category of categories" [ngValue]="category">
+       {{category.name}}
+     </option>
+   </select>
+     
+   
+ </div>
 </div>
+</div>-->
+   <button type="submit" class="btn btn-info">Dodaj produkt</button>
+  </div>
+
+</form>
+
+

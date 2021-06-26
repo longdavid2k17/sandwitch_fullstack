@@ -4,7 +4,7 @@
     <mat-card *ngFor="let tempProduct of products" class="card">
       <mat-card-header>
           <mat-card-title>
-              <a [routerLink]="'/products/'+tempProduct.id_product">
+              <a [routerLink]="'/products/'+tempProduct.id">
                   <h1>{{ tempProduct.name }}</h1>
               </a>
           </mat-card-title>

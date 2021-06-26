@@ -76,10 +76,8 @@ export class ProductsManagerComponent implements OnInit {
   get available(){return this.productFormGroup.get('product.available')};
   get imgUrl(){return this.productFormGroup.get('product.imgUrl')};
   get categoryProduct(){return this.productFormGroup.get('product.category')}
-  productName: string = '';
-  price: number=0;
-  
 
+  
  
   addProduct() {
    // this.product.name=this.productName;
