@@ -2,7 +2,8 @@
     
         <div class="container-fluid">
             <div *ngIf="cartItems.length>0">
-            <table class="table">
+                
+            <table class="table ">
                 <tr>
                     <th width=20%>Obraz produktu</th>
                     <th width=50%>Opis</th>
@@ -36,7 +37,7 @@
                                 <div class="col-8"></div>
                             </div>
                         </div>
-                        <button (click)="remove(tempCartItem)" class="btn btn-primary btn-sm">Remove</button>
+                        <button (click)="remove(tempCartItem)" class="btn btn-primary btn-sm active">Remove</button>
                         <p class="mt-2">Razem: {{tempCartItem.quantity*tempCartItem.unitPrice | currency: 'PLN'}}</p>
                     </td>
                 </tr>
@@ -45,7 +46,7 @@
                     <td style="font-weight: bold">
                     <p>Ilość: {{totalQuantity}}</p>
                     <p>Cena:{{totalPrice |currency: 'PLN'}}</p>
-                    <a routerLink="" class="btn btn-primary btn-sm">Zapłać</a>
+                    <a routerLink="" class="btn btn-primary btn-sm active">Zapłać</a>
                 </td>
                 </tr>
             </table>
