@@ -2,7 +2,7 @@
     
         <div class="container-fluid">
             <div *ngIf="cartItems.length>0">
-            <table class="table table-dark">
+            <table class="table">
                 <tr>
                     <th width=20%>Obraz produktu</th>
                     <th width=50%>Opis</th>
@@ -22,7 +22,7 @@
                             <div class="row no-gutters">
                                 <div class="col">
                                     <button (click)="incrementQuantity(tempCartItem)"class="btn btn-primary btn-sm">
-                                        <i class="fas fa-plus"></i>
+                                        +
                                     </button>
                                 </div>
                                 <div class="col ml-4 mr-2">
@@ -30,13 +30,13 @@
                                 </div>
                                 <div class="col">
                                     <button (click)="decrementQuantity(tempCartItem)" class="btn btn-primary btn-sm">
-                                        <i class="fas fa-minus"></i>
+                                        -
                                     </button>
                                 </div>
                                 <div class="col-8"></div>
                             </div>
                         </div>
-                        <button (click)="remove(tempCartItem)" class="btn btn-primary btn-sm mt-2">Remove</button>
+                        <button (click)="remove(tempCartItem)" class="btn btn-primary btn-sm">Remove</button>
                         <p class="mt-2">Razem: {{tempCartItem.quantity*tempCartItem.unitPrice | currency: 'PLN'}}</p>
                     </td>
                 </tr>
@@ -45,7 +45,7 @@
                     <td style="font-weight: bold">
                     <p>Ilość: {{totalQuantity}}</p>
                     <p>Cena:{{totalPrice |currency: 'PLN'}}</p>
-                    <a routerLink="" class="btn btn-primary">Zapłać</a>
+                    <a routerLink="" class="btn btn-primary btn-sm">Zapłać</a>
                 </td>
                 </tr>
             </table>
