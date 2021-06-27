@@ -19,6 +19,7 @@ import { OrderItemComponent } from '../components/admin/orders/order-item/order-
 import { CategoryEditComponent } from '../components/admin/category-edit/category-edit.component';
 import { ProductEditComponent } from '../components/admin/product-edit/product-edit.component';
 import { UserEditComponent } from '../components/admin/user-edit/user-edit.component';
+import { ClientOrderStatusComponent } from '../components/client-order-status/client-order-status.component';
 
 //Import components, declare components, add routes and export components
 const routes: Routes = [
@@ -29,7 +30,8 @@ const routes: Routes = [
       { path: 'products/:id', component: ProductDetailsComponent },
     ],
   },
-  { path: 'order', component: ClientOrderComponent },
+ 
+  { path: 'client-order', component: ClientOrderComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   {
@@ -81,7 +83,12 @@ const routes: Routes = [
     OrderItemComponent,
     CategoryEditComponent,
     ProductEditComponent,
+    ClientOrderStatusComponent,
     UserEditComponent,
+    
+    
+   
+    
   ],
   declarations: [
     ProductCategoryMenuComponent,
@@ -100,6 +107,8 @@ const routes: Routes = [
     CategoryEditComponent,
     ProductEditComponent,
     UserEditComponent,
+    ClientOrderStatusComponent
+   
   ],
 })
 export class RoutingModule {}

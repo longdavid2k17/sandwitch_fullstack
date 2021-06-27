@@ -1,1 +1,58 @@
-<p>client-order works!</p>
+<div class="main-content">
+    
+        <div class="container-fluid">
+            <div *ngIf="cartItems.length>0">
+            <table class="table table-dark">
+                <tr>
+                    <th width=20%>Obraz produktu</th>
+                    <th width=50%>Opis</th>
+                    <th width=30%></th>
+                </tr>
+                <tr *ngFor="let tempCartItem of cartItems">
+                    <td>
+                        <img src="{{tempCartItem.imageUrl}}" class="img-responsive" width="150ps">
+                    </td>
+                    <td>
+                        <p>{{tempCartItem.name}}</p>
+                        <p>{{tempCartItem.unitPrice | currency:'PLN'}}</p>
+                    </td>
+                    <td>
+                        <div class="items">
+                            <label>Ilość: </label>
+                            <div class="row no-gutters">
+                                <div class="col">
+                                    <button (click)="incrementQuantity(tempCartItem)"class="btn btn-primary btn-sm">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                                <div class="col ml-4 mr-2">
+                                    {{tempCartItem.quantity}}
+                                </div>
+                                <div class="col">
+                                    <button (click)="decrementQuantity(tempCartItem)" class="btn btn-primary btn-sm">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                                <div class="col-8"></div>
+                            </div>
+                        </div>
+                        <button (click)="remove(tempCartItem)" class="btn btn-primary btn-sm mt-2">Remove</button>
+                        <p class="mt-2">Razem: {{tempCartItem.quantity*tempCartItem.unitPrice | currency: 'PLN'}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"></td>
+                    <td style="font-weight: bold">
+                    <p>Ilość: {{totalQuantity}}</p>
+                    <p>Cena:{{totalPrice |currency: 'PLN'}}</p>
+                    <a routerLink="" class="btn btn-primary">Zapłać</a>
+                </td>
+                </tr>
+            </table>
+        </div>
+        <div *ngIf="cartItems.length==0" class="alert alert-warning col-md-12 " role="alert">
+            Twój koszyk jest pusty.
+        </div>
+        </div>
+    
+</div>

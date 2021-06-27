@@ -15,6 +15,8 @@ import {CategoryManagerService} from './services/categories/category-manager.ser
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RoutingModule } from './routing/routing.module';
+import { ClientOrderStatusComponent } from './components/client-order-status/client-order-status.component';
+import { ClientOrderService } from './services/client-order.service';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -32,6 +34,7 @@ import { RoutingModule } from './routing/routing.module';
     UsersService,
     OrdersManagerService,
     LoginService,
+    ClientOrderService
   ],
   bootstrap: [AppComponent],
 })
