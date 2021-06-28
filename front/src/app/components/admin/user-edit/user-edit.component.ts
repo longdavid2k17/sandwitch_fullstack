@@ -13,12 +13,12 @@ export class UserEditComponent implements OnInit {
   userForm:FormGroup
 
   constructor(private router:Router,private formBuilder:FormBuilder,private userManager:UsersService) {
-   const {id,name,last_name,phone_number,role,email_address} =router.getCurrentNavigation()?.extras.state?.data;
+   const {id,name,last_name,phone_number,role,email} =router.getCurrentNavigation()?.extras.state?.data;
 
     this.userForm = this.formBuilder.group({
       name: [name, [Validators.required]],
       last_name: [last_name, [Validators.required]],
-      email: [email_address, [Validators.required]],
+      email: [email, [Validators.required]],
       role: [role, [Validators.required]],
       phone_number: [phone_number, [Validators.required]],
     });

@@ -51,32 +51,20 @@
   </table>
   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
  <form [formGroup]="productFormGroup" (ngSubmit)="addProduct()">
-   <div formGroupName="product" clas="form-area">
+   <div formGroupName="product" class="form-area">
     <h3>Dodaj produkt</h3>
-    <div class="row">
-      <div class="col-md-2"><label>Nazwa</label></div>
-      <div class="col-md-9">
-        <div class="input-space">
-          <input formControlName="name" type="text">
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-2"><label>Opis</label></div>
-      <div class="col-md-9">
-          <div class="input-space">
-          <input formControlName="description" type="text">
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-2"><label>Cena</label></div>
-      <div class="col-md-9">
-          <div class="input-space">
-          <input formControlName="unit_price" type="number">
-        </div>
-      </div>
-    </div>
+    <mat-form-field appearance="fill">
+      <mat-label>Nazwa</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Opis</mat-label>
+      <input matInput formControlName="description">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Cena</mat-label>
+      <input matInput formControlName="unit_price" type="number">
+    </mat-form-field>
     <div class="row">
       <div class="col-md-2"><label>Dostępny</label></div>
       <div class="col-md-9">
@@ -85,61 +73,23 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-2"><label>Adres obrazka</label></div>
-      <div class="col-md-9">
-          <div class="input-space">
-          <input formControlName="imgUrl" type="text">
-        </div>
-      </div>
+    <mat-form-field appearance="fill">
+      <mat-label>Adres obrazka</mat-label>
+      <input matInput formControlName="imgUrl">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+          <mat-label>Nazwa kategorii</mat-label>
+          <mat-select formControlName="category">
+            <mat-option
+              *ngFor="let category of categories"
+              [value]="category"
+            >
+              {{ category.name }}
+            </mat-option>
+          </mat-select>
+    </mat-form-field>
+        <button type="submit" class="btn btn-info">Dodaj produkt</button>
     </div>
-    <div class="row">
-      <div class="col-md-2"><label>Kategoria</label></div>
-      <div class="col-md-9">
-          <div class="input-space">
-    <select formControlName="category">
-      <option *ngFor="let category of categories" [ngValue]="category">
-        {{category.name}}
-      </option>
-    </select>
-      
-    
-  </div>
-</div>
-</div>
-    <button type="submit" class="btn btn-info">Dodaj produkt</button>
-   </div>
 
  </form>
-
-
-  <!--<mat-card-actions>
-      <mat-form-field>
-        <mat-label>Nazwa produktu</mat-label>
-        <input
-          matInput
-          placeholder="Hawajska"
-          type="text"
-          [(ngModel)]="productName"
-        />
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Cena</mat-label>
-        <input
-          matInput
-          placeholder="Cena"
-          type="number"
-          [(ngModel)]="price"
-        />
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Nazwa kategorii</mat-label>
-        <mat-select [(ngModel)]="category">
-          <mat-option *ngFor="let category of categories" [value]="category.id">
-            {{category.name}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <button mat-raised-button color="secondary" (click)="addProduct()">Dodaj</button>
-  </mat-card-actions> !-->
 </mat-card>

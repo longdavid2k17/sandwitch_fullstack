@@ -83,6 +83,7 @@ export class ProductsManagerComponent implements OnInit {
    // this.product.name=this.productName;
     let product = new Product();
     product=this.productFormGroup.controls['product'].value;
+    console.log(product)
     this.productService.addProduct(product).subscribe((data:any)=>{
       console.log(data)
     })
