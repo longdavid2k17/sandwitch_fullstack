@@ -26,19 +26,19 @@ public class UserRepoTests
         User user = new User();
         user.setName("Test");
         user.setLast_name("TestoweNazwisko");
-        user.setEmail_address("testowetututu@gmail.com");
+        user.setEmail("testowetututu@gmail.com");
         user.setRole("customer");
         user.setPhone_number(456789123);
-        log.info("USER: "+user.getId()+" "+user.getName()+" "+user.getLast_name()+" "+user.getEmail_address()+" "+user.getRole());
+        log.info("USER: "+user.getId()+" "+user.getName()+" "+user.getLast_name()+" "+user.getEmail()+" "+user.getRole());
         User savedUser = userRepo.save(user);
 
         assertThat(savedUser.getId()).isNotEqualTo(null);
         assertThat(savedUser.getName()).isEqualTo("Test");
         assertThat(savedUser.getLast_name()).isEqualTo("TestoweNazwisko");
-        assertThat(savedUser.getEmail_address()).isEqualTo("testowetututu@gmail.com");
+        assertThat(savedUser.getEmail()).isEqualTo("testowetututu@gmail.com");
         assertThat(savedUser.getRole()).isEqualTo("customer");
         assertThat(savedUser.getPhone_number()).isEqualTo(user.getPhone_number());
-        log.info("USER: "+savedUser.getId()+" "+savedUser.getName()+" "+savedUser.getLast_name()+" "+savedUser.getEmail_address()+" "+savedUser.getRole());
+        log.info("USER: "+savedUser.getId()+" "+savedUser.getName()+" "+savedUser.getLast_name()+" "+savedUser.getEmail()+" "+savedUser.getRole());
 
         userRepo.delete(savedUser);
     }
@@ -50,19 +50,19 @@ public class UserRepoTests
         User user = new User();
         user.setName("Test");
         user.setLast_name("TestoweNazwisko");
-        user.setEmail_address("testowetututu@gmail.com");
+        user.setEmail("testowetututu@gmail.com");
         user.setRole("customer");
         user.setPhone_number(456789123);
-        log.info("USER: "+user.getId()+" "+user.getName()+" "+user.getLast_name()+" "+user.getEmail_address()+" "+user.getRole());
+        log.info("USER: "+user.getId()+" "+user.getName()+" "+user.getLast_name()+" "+user.getEmail()+" "+user.getRole());
         User savedUser = userRepo.save(user);
 
         assertThat(savedUser.getId()).isNotEqualTo(null);
         assertThat(savedUser.getName()).isEqualTo("Test");
         assertThat(savedUser.getLast_name()).isEqualTo("TestoweNazwisko");
-        assertThat(savedUser.getEmail_address()).isEqualTo("testowetututu@gmail.com");
+        assertThat(savedUser.getEmail()).isEqualTo("testowetututu@gmail.com");
         assertThat(savedUser.getRole()).isEqualTo("customer");
         assertThat(savedUser.getPhone_number()).isEqualTo(user.getPhone_number());
-        log.info("savedUser: "+savedUser.getId()+" "+savedUser.getName()+" "+savedUser.getLast_name()+" "+savedUser.getEmail_address()+" "+savedUser.getRole());
+        log.info("savedUser: "+savedUser.getId()+" "+savedUser.getName()+" "+savedUser.getLast_name()+" "+savedUser.getEmail()+" "+savedUser.getRole());
 
         savedUser.setName("TestZmiana");
         savedUser.setLast_name("TestoweNazwiskoZmiana");
@@ -71,10 +71,10 @@ public class UserRepoTests
         assertThat(changedUser.getId()).isEqualTo(savedUser.getId());
         assertThat(changedUser.getName()).isEqualTo("TestZmiana");
         assertThat(changedUser.getLast_name()).isEqualTo("TestoweNazwiskoZmiana");
-        assertThat(changedUser.getEmail_address()).isEqualTo(savedUser.getEmail_address());
+        assertThat(changedUser.getEmail()).isEqualTo(savedUser.getEmail());
         assertThat(changedUser.getRole()).isEqualTo(savedUser.getRole());
         assertThat(changedUser.getPhone_number()).isEqualTo(savedUser.getPhone_number());
-        log.info("changedUser: "+changedUser.getId()+" "+changedUser.getName()+" "+changedUser.getLast_name()+" "+changedUser.getEmail_address()+" "+changedUser.getRole());
+        log.info("changedUser: "+changedUser.getId()+" "+changedUser.getName()+" "+changedUser.getLast_name()+" "+changedUser.getEmail()+" "+changedUser.getRole());
 
         userRepo.delete(savedUser);
 

@@ -29,11 +29,23 @@ public class User {
     private int phone_number;
 
     @Column(name = "email")
-    private String email_address;
+    private String email;
 
     @Column(name = "role")
     private String role;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "user")
     private Set<Order> orders = new HashSet<>();
+    public void add(Order order) {
+
+        if (order != null) {
+
+            if (orders == null) {
+                orders = new HashSet<>();
+            }
+
+            orders.add(order);
+            order.setUser(this);
+        }
+    }
 }
